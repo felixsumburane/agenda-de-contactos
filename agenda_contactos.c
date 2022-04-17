@@ -4,7 +4,6 @@
 =============== (Engenharia e Desenvolvimento de Softwares) da Universidade Licungo - Extensão da Beira. =========
 =============== Estudantes: Santos Ussene, Milton Miquitaio, Crussi Estevão & Cleyton Israel M. F. Hung ==========
 ==================================================================================================================
-Contribuição de Sumburane!
 */
 
 #include <stdio.h>
@@ -13,6 +12,8 @@ Contribuição de Sumburane!
 
 void Agenda(void); //Inicialização
 void Listar(void); //Inicialização
+void principal_menu(void); // funcao do menu principal
+void create_choise(void); // Escolha das opcoes
 
 struct Agenda {
     char Nome[25];
@@ -34,9 +35,21 @@ void Agenda();
 void Listar();
 
 int main() {
-
+    // O Metodo Main ficou menor, com responsabilidade apenas de chamar funcoes
+    // ao inves de realizar tarefas directamente
+    
     system("cls");
+    principal_menu();  // chamamento do menu principal
+    printf("Digite sua opcao: ");
+    scanf("%d", &Global.Op);
+    getchar(); // Limpa o buffer...
 
+    create_choise();  // Escolha das opcoes
+    
+    return 0;
+}
+
+void principal_menu(){
     printf("============================================================\n");
     printf("                    AGENDA DE CONTACTOS                     \n");
     printf("============================================================\n");
@@ -48,12 +61,9 @@ int main() {
     printf("|||||               3. Sair                            |||||\n");
     printf("|||||==================================================|||||\n");
     printf("============================================================\n\n");
+}
 
-    printf("Digite sua opcao: ");
-
-    scanf("%d", &Global.Op);
-    getchar(); // Limpa o buffer...
-
+void create_choise(){  // Executa alfo de acordo com as opcoes escolhidas
     switch (Global.Op) {
         case 1:
             Agenda();
@@ -79,7 +89,6 @@ int main() {
             main();
             break;
     }
-    return 0;
 }
 
 void Agenda() {
