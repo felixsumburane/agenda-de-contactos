@@ -10,6 +10,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Esse é um comentario
+
 void Agenda(void); //Inicialização
 void Listar(void); //Inicialização
 void principal_menu(void); // funcao do menu principal
